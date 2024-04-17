@@ -26,3 +26,28 @@ export interface Tag {
   id: string;
   name: string;
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  categoryId: string;
+  postedOn: Date;
+  imageSrc?: string;
+  showroom?: string;
+  trim?: string;
+  year?: number;
+  kilometers?: number;
+  regionalSpecs?: string;
+  doors?: number;
+  bodyType?: string;
+  sellerType?: string;
+  transmissionType?: string;
+  horsepower?: number;
+  numberOfCylinders?: number;
+  warranty?: boolean;
+  exteriorColor?: string;
+  interiorColor?: string;
+  targetMarket?: string;
+  tags?: string[];
+}
