@@ -6,7 +6,7 @@ import {
   HttpMethod,
   HttpResponseData,
 } from "../definitions/datatypes";
-import { REACT_APP_SERVER_URL } from "../configs";
+import { sendRequestEx } from "../server/initializer";
 
 export const useHttpClient = (): HttpClientResponse<HttpResponseData> => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,18 +22,7 @@ export const useHttpClient = (): HttpClientResponse<HttpResponseData> => {
       setIsLoading(true);
 
       try {
-        const response = await fetch(`${REACT_APP_SERVER_URL}${url}`, {
-          method,
-          body,
-          headers,
-        });
-
-        const responseData = await response.json();
-
-        if (!response.ok) {
-          throw new Error(responseData.message);
-        }
-
+        const responseData = await sendRequestEx(url, method, body, headers);
         setIsLoading(false);
         return responseData;
       } catch (err: any) {
