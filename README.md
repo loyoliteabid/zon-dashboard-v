@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# Zon Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Zon Dashboard** is a React.js project tailored for managing Zon's categories and products as part of the assessment. It focuses on essential functionalities, such as seeding the database with required categories upon project load. Notably, images are not stored in the database or any external storage; instead, they are locally saved within the Zon application's files, with image paths stored as strings.
 
-Currently, two official plugins are available:
+## Technical Details
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is predominantly built using TypeScript, React.js, and Tailwind CSS.
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The structure within the "src" folder illustrates the project's architecture. Designed as a minimally featured web application, the project lacks router integration. The root file, "App.js," serves as the only page within this Single Page Application (SPA) setup. Conditional rendering is employed to display four distinct pages. Ensure that the correct server path is defined at "configs/index.ts" with the export:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```typescript
+export const REACT_APP_SERVER_URL = "http://localhost:3999";
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Requirements
+
+The project is scaffolded using the "vite react-ts" template and is intended to function in a Node.js environment seamlessly.
+
+## Getting Started
+
+To get started:
+
+1. Clone the Zon Dashboard repository.
+2. Run `npm install`.
+3. Execute `npm run dev` to run the Node.js Express server on port 5173.
